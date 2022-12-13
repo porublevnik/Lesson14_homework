@@ -55,7 +55,7 @@ def get_movie_by_rating(rating):
     if rating == 'children':
         query += 'WHERE rating = "G"'
     elif rating == 'family':
-        query += 'WHERE rating = "G" OR rating = "PG OR rating = "PG-13"'
+        query += 'WHERE rating = "G" OR rating = "PG" OR rating = "PG-13"'
     elif rating == 'adult':
         query += 'WHERE rating = "R" OR rating = "NC-17"'
     else:
@@ -113,7 +113,7 @@ def get_co_actors(name1: str, name2: str):
 def get_movie_by_type_year_and_genre(film_type, year, genre):
     query = f"""SELECT * 
     FROM netflix 
-    WHERE "type" IS '{film_type}' AND release_year is {year} and listed_in LIKE '%{genre}%'
+    WHERE `type` IS '{film_type}' AND release_year is {year} and listed_in LIKE '%{genre}%'
     """
 
     result = []
